@@ -1,7 +1,22 @@
+using Microsoft.AspNetCore.Localization;
+using Serilog;
+using System.Globalization;
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Host.UseSerilog();
+
+Log.Information("Starting web Application");
+
+builder.Services.AddSerilog();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+builder.Services.AddMvc()
+    .AddViewLocalization();
 
 var app = builder.Build();
 
@@ -14,6 +29,20 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+var supportedCultures = new[]
+{
+    new CultureInfo("en"),
+    new CultureInfo("bn")
+};
+
+app.UseRequestLocalization(new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new RequestCulture("en"),
+    SupportedCultures = supportedCultures,
+    SupportedUICultures = supportedCultures
+});
+
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -24,4 +53,15 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.Run();
+try
+{
+    app.Run();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Application terminated unexpectedly");
+}
+finally
+{
+    Log.CloseAndFlush();
+}
