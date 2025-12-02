@@ -65,3 +65,77 @@ MVCViewsDemo/
 | Data Demo	| ViewData, ViewBag, TempData examples |
 | Localization	| Multi-language support demo |
 | Tag Helpers | Built-in and custom Tag Helper examples |
+
+## Custom Tag Helpers
+
+| Tag Helper	| Usage	| Description |
+|---------------|-------|-------------|
+| `<alert>`	| `<alert type="success" dismissible="true">Message</alert>` | 	Bootstrap alert |
+| `<badge>`	| `<badge type="primary" pill="true">Text</badge>`	| Bootstrap badge |
+| `<email>`	| `<email address="test@example.com" subject="Hello">`	| Mailto link |
+| `<progress-bar>`	| `<progress-bar value="75" color="success">`	|Progress bar |
+| `<time-ago>`	| `<time-ago date="@DateTime.Now.AddDays(-5)">`	|Relative time |
+
+## Technologies
+
+- ASP.NET Core 8.0
+- Bootstrap 5
+- jQuery
+- jQuery Validation
+
+## Getting Started
+
+### Prerequisites
+
+- .NET 8.0 SDK
+
+### Run the Application
+
+
+```bash
+cd MVCVLOggingLocalization
+dotnet run
+```
+Open browser at `https://localhost:7088` or `http://localhost:5045`
+
+## Key Concepts Demonstrated
+
+### Razor Syntax
+
+- Implicit expressions: `@DateTime.Now`
+- Explicit expressions: `@(5 + 3)`
+- Code blocks: `@{ var x = 1; }`
+- Control structures: `@if`, `@for`, `@foreach`, `@switch`
+
+### Layout Sections
+
+```cshtml
+@section Sidebar {
+    <!-- Sidebar content -->
+}
+
+@section Scripts {
+    <!-- Additional scripts -->
+}
+```
+
+### Tag Helpers
+
+```html
+<a asp-controller="Home" asp-action="Index">Home</a>
+<input asp-for="Name" />
+<span asp-validation-for="Name"></span>
+```
+
+### View Data
+
+```c#
+// Controller
+ViewData["Message"] = "Hello";
+ViewBag.User = new { Name = "John" };
+TempData["Success"] = "Saved!";
+```
+
+## License
+
+This project is for leraning purposes.
