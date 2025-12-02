@@ -10,6 +10,6 @@
         public int Stock { get; set; }
         public string ImageUrl { get; set; } = string.Empty;
         public bool IsAvailable { get; set; }
-        public DateTime CraetedAt { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 }
