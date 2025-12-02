@@ -2,7 +2,7 @@
 
 namespace MVCLOggingLocalization.Controllers
 {
-    public class TagHelpersController1 : Controller
+    public class TagHelpersController : Controller
     {
         public IActionResult Index()
         {

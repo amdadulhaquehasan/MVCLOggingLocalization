@@ -3,7 +3,7 @@ using MVCLOggingLocalization.Models;
 
 namespace MVCLOggingLocalization.Controllers
 {
-    public class ContactController1 : Controller
+    public class ContactController : Controller
     {
         public IActionResult Index()
         {
