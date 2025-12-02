@@ -136,6 +136,13 @@ ViewBag.User = new { Name = "John" };
 TempData["Success"] = "Saved!";
 ```
 
+### Localization
+
+```cshtml
+@inject IViewLocalizer Localizer
+<h1>@Localizer["Welcome"]</h1>
+```
+
 ## License
 
 This project is for leraning purposes.
