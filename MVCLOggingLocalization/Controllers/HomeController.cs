@@ -15,14 +15,13 @@ namespace MVCLOggingLocalization.Controllers
 
         public IActionResult Index()
         {
-            _logger.LogInformation("Information: Landing to home index view");
-            _logger.LogWarning("Warning: Landing to home index view");
-            _logger.LogError("Error: Landing to home index view");
+            _logger.LogInformation("Home page accessed");
             return View();
         }
 
         public IActionResult Privacy()
         {
+            _logger.LogInformation("Privacy page accessed");
             return View();
         }
 
