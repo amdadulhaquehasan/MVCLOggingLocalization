@@ -15,7 +15,7 @@ An ASP.NET Core MVC demonstration project showcasing Razor Views, Tag Helpers, a
 ## Project Structure
 
 ```
-MVCViewsDemo/
+MVCVLOggingLocalization/
 ├── Controllers/
 │   ├── HomeController.cs
 │   ├── ProductsController.cs
